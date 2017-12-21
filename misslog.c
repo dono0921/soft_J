@@ -21,6 +21,6 @@ void misslog(){
 	fi=fopen("misslog.txt","r");
 		for(;;){
 		c=fgetc(fi);
-		if(c==EOF) exit[1];
+		if(c==EOF) exit(1);
 		printf()
 		}
