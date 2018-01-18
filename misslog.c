@@ -6,8 +6,10 @@ int main(){
 int miss;
 FILE *fi;
 
-	if(miss==1){
-		printf("間違ってます");
+	if(strcmp(answer,kotae)==0){
+		prinf("正解\n");
+	else{
+		printf("不正解\n");
 		fi=fopen("misslog.txt","a");		//間違えた問題を保存
 		fprintf(fi,"%d",&i);
 		fclose(fi);
