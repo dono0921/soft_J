@@ -3,15 +3,17 @@
 
 int main(){
 
-int miss;
+struct data{
+int i;
+char answer[200],kotae[200],eibun[200];
 FILE *fi;
 
-	if(strcmp(answer,kotae)==0){
+	if(strcmp(answer,data[i].kotae)==0){
 		prinf("正解\n");
 	else{
 		printf("不正解\n");
 		fi=fopen("misslog.txt","a");		//間違えた問題を保存
-		fprintf(fi,"%d",&i);
+		fprintf(fi,"%s",&data[i].eibun);
 		fclose(fi);
 	}else{
 		printf("正解です");
