@@ -2,6 +2,7 @@
 #include<ctype.h>
 #include<string.h>
 #include<stdlib.h>
+#include<time.h>
 
 #define DATAMAX 30
 
@@ -20,9 +21,11 @@ record data[DATAMAX];
 
 int main(){
 
-	int i=0,score=0,k=0,l=0;
-	FILE *fi,*fj,*fk,*fl;
+	int i=0,score=0,count=0;
+	FILE *fi,*fj,*fk;
 	char answer[DATAMAX];
+
+	srand(time(NULL));
 
 	fi=fopen("toeic-eibun.txt","r");
 	fj=fopen("toeic-nihonbun.txt","r");
@@ -37,7 +40,9 @@ int main(){
 	fclose(fj);
 	fclose(fk);
 
-	for(i=0;i<DATAMAX;i++){
+	for(;;){
+		if(count==DATAMAX) break;
+		i=rand()%DATAMAX+1;
 		printf("%s",data[i].eibun);
 		printf("%s",data[i].nihonbun);
 		fgets(answer,DATAMAX,stdin);
@@ -47,18 +52,12 @@ int main(){
 		score++;
 	}else{
 		printf("不正解\n");
-		if(k=i){
-		fl=fopen("misslog.txt","a");		//間違えた問題を保存
-		fprintf(fl,"%d\n",i);
-		fclose(fl);
-		}else{
-				}
 			printf("答え: %s",data[i].kotae);
+}
+	count++;
 }
 	printf("正解数は %d / %d \n",score,DATAMAX);
 }
-}
-
 
 
 
